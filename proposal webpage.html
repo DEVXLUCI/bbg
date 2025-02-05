@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My BBG 💖</title>
+    <style>
+        body {
+            background: url('https://source.unsplash.com/1600x900/?love,hearts') no-repeat center center/cover;
+            text-align: center;
+            color: white;
+            font-family: 'Cursive', sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .moving-hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://i.gifer.com/3QZx.gif') repeat;
+            opacity: 0.5;
+            z-index: -1;
+        }
+        .message {
+            font-size: 26px;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 25px;
+            border-radius: 15px;
+        }
+        .proposal {
+            font-size: 36px;
+            display: none;
+            margin-top: 20px;
+            font-weight: bold;
+            color: red;
+        }
+        .btn {
+            background: linear-gradient(to right, pink, red);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background 0.5s;
+        }
+        .btn:hover {
+            background: linear-gradient(to right, red, pink);
+        }
+        .yes-message {
+            display: none;
+            font-size: 28px;
+            background: rgba(255, 182, 193, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+        .smoke-heart {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 300px;
+            height: 300px;
+            background: url('https://i.pinimg.com/originals/54/11/0a/54110a9b76b52478dbf8f5a840f383d7.gif') no-repeat center center;
+            background-size: cover;
+            transform: translate(-50%, -50%);
+            display: none;
+        }
+        .heart {
+            position: absolute;
+            top: -50px;
+            font-size: 24px;
+            color: red;
+            animation: fall 4s linear infinite;
+        }
+        @keyframes fall {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="moving-hearts"></div>
+    <div class="message">
+        Hey Alina, my love, my world! 💕<br>From the moment we met, I knew you were my forever. 💫
+    </div>
+    <button class="btn" onclick="showProposal()">Click to Reveal</button>
+    <div class="proposal" id="proposal">
+        WILL YOU BE MY WIFE, BBG? 💍❤️
+        <br><br>
+        <button class="btn" onclick="yes()">YES</button>
+        <button class="btn" onclick="no()">NO</button>
+    </div>
+    <div class="yes-message" id="yes-message">
+        She said YES! 💖💍🥰<br>I LOVEE UUU SOO MUCHH BBG !!!!
+    </div>
+    <div class="smoke-heart" id="smoke-heart"></div>
+    
+    <script>
+        function showProposal() {
+            document.getElementById('proposal').style.display = 'block';
+        }
+
+        function yes() {
+            document.getElementById('yes-message').style.display = 'block';
+            document.getElementById('smoke-heart').style.display = 'block';
+            playHeartfeltMusic();
+            startFallingHearts();
+        }
+
+        function no() {
+            alert("She said NO! 😢");
+        }
+
+        function playHeartfeltMusic() {
+            const audio = new Audio('https://www.bensound.com/bensound-music/bensound-love.mp3');
+            audio.play();
+        }
+
+        function startFallingHearts() {
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 5000);
+            }, 300);
+        }
+    </script>
+</body>
+</html>
+
+
+
+
